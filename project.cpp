@@ -54,8 +54,6 @@ int main() {
     std::vector <std::pair<int, std::string>> pass_vect; //string is comparing to user_input, int is difference
 
     while(file >> password) {
-        // cout << password << endl;               prints 123456
-        // cout << " " << endl;
         pass_vect.push_back(std::make_pair(diff_metric(user_input, password),password));
     }
     std::sort(pass_vect.begin(), pass_vect.end());
