@@ -45,23 +45,19 @@ auto diff_metric(std::string a, std::string b) {
 
 int main() {
     std::ifstream file("common_passwords.txt");
-
     std::string user_input;
     cout << "Give me a password: ";
     std::cin >> user_input;
     cout << "You provided a password of " << user_input << endl;
     cout << "The most similar passwords to " << user_input << " are:" << endl;
-
     std::string password;
     std::vector <std::pair<int, std::string>> pass_vect; //string is comparing to user_input, int is difference
-
     while(file >> password) {
-        // cout << password << endl;               prints 123456
+        // cout << password << endl;              
         // cout << " " << endl;
         pass_vect.push_back(std::make_pair(diff_metric(user_input, password),password));
     }
     std::sort(pass_vect.begin(), pass_vect.end());
-
     int min = pass_vect[0].first;
     for(std::vector<int>::size_type i = 0; i < pass_vect.size(); i++) {
         if(pass_vect[i].first == min) {
